@@ -1,1 +1,1 @@
-module gitsync
+module github.com/Rishikesh01/gitsync
