@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"gitsync/dto"
+	"github.com/Rishikesh01/gitsync/dto"
 	"log"
 	"os/exec"
 )

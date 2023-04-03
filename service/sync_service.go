@@ -2,7 +2,7 @@ package service
 
 import (
 	"encoding/json"
-	"gitsync/dto"
+	"github.com/Rishikesh01/gitsync/dto"
 	"log"
 	"net/http"
 )

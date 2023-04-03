@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gitsync/dto"
-	"gitsync/service"
+	"github.com/Rishikesh01/gitsync/dto"
+	"github.com/Rishikesh01/gitsync/service"
 	"log"
 	"net/http"
 )
