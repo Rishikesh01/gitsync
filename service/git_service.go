@@ -11,16 +11,20 @@ type GitService interface {
 	CloneRepo()
 }
 
-func NewGitService(sync chan dto.SyncGit) GitService {
-	return &gitService{sync: sync}
+type GitConfig struct {
+	InSync chan dto.SyncGit
+}
+
+func NewGitService(config *GitConfig) GitService {
+	return &gitService{config}
 }
 
 type gitService struct {
-	sync chan dto.SyncGit
+	*GitConfig
 }
 
 func (g *gitService) CloneRepo() {
-	for val := range g.sync {
+	for val := range g.InSync {
 		clone := exec.Command("git", fmt.Sprintf("clone %s %s", val.GitLink, val.ParentDir))
 		_, err := clone.Output()
 		if err != nil {
