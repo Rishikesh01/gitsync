@@ -21,14 +21,15 @@ func main() {
 	}
 	sync := make(chan dto.SyncGit, 1000)
 	client := new(http.Client)
-	service.NewCommunicationService(&service.CommunicationConfig{
+	_, err := service.NewCommunicationService(&service.CommunicationConfig{
 		Client:              client,
 		SyncProjectEndpoint: env.SyncProjectEndpoint,
 		AddProjectEndpoint:  env.AddProjectEndpoint,
 		OutSync:             sync,
 	})
+	if err != nil {
+		return
+	}
 
-	service.NewGitService(&service.GitConfig{
-		InSync: sync,
-	})
+	service.NewGitService(sync, nil)
 }
