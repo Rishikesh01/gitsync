@@ -12,17 +12,18 @@ type CmdlineService interface {
 }
 
 func NewCmdlineService(logger *log.Logger, com CommunicationService,
-	gitService GitService) (CmdlineService, error) {
-	if logger == nil || com == nil || gitService == nil {
+	gitService GitService, ioService YamlService) (CmdlineService, error) {
+	if logger == nil || com == nil || gitService == nil || ioService == nil {
 		return nil, errors.New("one of the params is nil")
 	}
-	return &cmdService{logger: logger, com: com, gitService: gitService}, nil
+	return &cmdService{logger: logger, com: com, gitService: gitService, ioService: ioService}, nil
 }
 
 type cmdService struct {
 	logger     *log.Logger
 	com        CommunicationService
 	gitService GitService
+	ioService  YamlService
 }
 
 // gitsync add
@@ -34,36 +35,22 @@ func (c *cmdService) Args(args string) {
 		c.com.Sync()
 		break
 	case validArgs[1]:
-		c.interActiveCommand()
+		val, err := c.ioService.CheckYamlInCWD()
+		if err != nil {
+			log.Println(err)
+		}
+		c.com.AddNewGitRepos([]dto.Project{val})
+		break
 	case validArgs[2]:
 		c.com.Sync()
-		c.interActiveCommand()
+		val, err := c.ioService.CheckYamlInCWD()
+		if err != nil {
+			log.Println(err)
+		}
+		c.com.AddNewGitRepos([]dto.Project{val})
+		break
 	default:
 		fmt.Println("wrong args")
 	}
 
-}
-
-func (c *cmdService) interActiveCommand() {
-	var projects []dto.Project
-	fmt.Print("Enter the following details")
-	var exit string
-	for exit != "y" {
-		project := dto.Project{}
-		fmt.Print("Project name:")
-		fmt.Scan(&project.ProjectName)
-		fmt.Println("Github link:")
-		fmt.Scan(&project.GithubLink)
-		fmt.Println("Is the project private on github:")
-		fmt.Scan(&project.IsActive)
-		fmt.Println("Directory path of project src:")
-		fmt.Scan(&project.ParentDir)
-		fmt.Print("Is the project currently active:")
-		fmt.Scanln(&project.IsActive)
-		fmt.Println("Are you doing adding projects[y/n]:")
-		fmt.Scan(&exit)
-		projects = append(projects, project)
-	}
-
-	c.com.AddNewGitRepos(projects)
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/Rishikesh01/gitsync/dto"
 	"github.com/Rishikesh01/gitsync/service"
 	"github.com/kelseyhightower/envconfig"
@@ -41,11 +40,11 @@ func main() {
 		log.Fatal(err)
 		return
 	}
-	cmd, err := service.NewCmdlineService(logger, com, gitService)
+	ioService := service.NewYamlService()
+	cmd, err := service.NewCmdlineService(logger, com, gitService, ioService)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Print(os.Args[1:])
 	cmd.Args(strings.Join(os.Args[1:], " "))
 
 }

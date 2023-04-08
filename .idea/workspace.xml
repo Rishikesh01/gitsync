@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e67a924-effe-438c-bd64-fbeb9d1a11a9" name="Changes" comment="added validation">
-      <change afterPath="$PROJECT_DIR$/service/cmd_service.go" afterDir="false" />
+    <list default="true" id="8e67a924-effe-438c-bd64-fbeb9d1a11a9" name="Changes" comment="added commandline">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/ymal_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/project.go" beforeDir="false" afterPath="$PROJECT_DIR$/dto/project.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/cmd_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/cmd_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,12 +51,14 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/boris/IdeaProjects/projectsync&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -92,7 +97,16 @@
       <workItem from="1680622433151" duration="8275000" />
       <workItem from="1680793700315" duration="5645000" />
       <workItem from="1680801262132" duration="1318000" />
-      <workItem from="1680878134159" duration="3983000" />
+      <workItem from="1680878134159" duration="4678000" />
+      <workItem from="1680886002483" duration="108000" />
+      <workItem from="1680889513145" duration="750000" />
+      <workItem from="1680890373273" duration="109000" />
+      <workItem from="1680890490116" duration="62000" />
+      <workItem from="1680890558938" duration="56000" />
+      <workItem from="1680890665921" duration="26000" />
+      <workItem from="1680890699237" duration="4000" />
+      <workItem from="1680890735499" duration="1036000" />
+      <workItem from="1680967155915" duration="2478000" />
     </task>
     <task id="LOCAL-00001" summary="minor changes">
       <created>1680529791983</created>
@@ -115,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680801968631</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added commandline">
+      <created>1680882400405</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680882400405</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="minor changes" />
     <MESSAGE value="added validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added validation" />
+    <MESSAGE value="added commandline" />
+    <option name="LAST_COMMIT_MESSAGE" value="added commandline" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
