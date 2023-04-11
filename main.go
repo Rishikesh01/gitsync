@@ -23,13 +23,7 @@ func main() {
 	logger := log.Default()
 	sync := make(chan dto.SyncGit, 1000)
 	client := new(http.Client)
-	com, err := service.NewCommunicationService(&service.CommunicationConfig{
-		Client:              client,
-		SyncProjectEndpoint: env.SyncProjectEndpoint,
-		AddProjectEndpoint:  env.AddProjectEndpoint,
-		OutSync:             sync,
-		Logger:              logger,
-	})
+	com, err := service.NewCommunicationService(client, env.SyncProjectEndpoint, env.AddProjectEndpoint, sync, logger)
 	if err != nil {
 		log.Fatal(err)
 		return
